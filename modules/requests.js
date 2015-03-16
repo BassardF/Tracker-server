@@ -12,7 +12,11 @@ var lines = require('./lines.js');
 var measurements = require('./measurements.js');
 var measurementsGoals = require('./measurements-goals.js');
 var performanceGoals = require('./performance-goals.js');
-
+var schedules = require('./schedules.js');
+var schedulesExercices = require('./schedules-exercices.js');
+var userMeasurements = require('./user-measurements.js');
+var workouts = require('./workouts.js');
+var workoutsExercices = require('./workouts-exercices.js');
 
 
 /* Create the Database if needed */
@@ -156,6 +160,61 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			performanceGoals.create(db, req, res, next);
+		}
+	},
+	schedules : {
+		getAll : function(req, res, next){
+			schedules.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			schedules.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			schedules.create(db, req, res, next);
+		}
+	},
+	schedulesExercices : {
+		getAll : function(req, res, next){
+			schedulesExercices.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			schedulesExercices.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			schedulesExercices.create(db, req, res, next);
+		}
+	},
+	userMeasurements : {
+		getAll : function(req, res, next){
+			userMeasurements.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			userMeasurements.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			userMeasurements.create(db, req, res, next);
+		}
+	},
+	workouts : {
+		getAll : function(req, res, next){
+			workouts.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			workouts.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			workouts.create(db, req, res, next);
+		}
+	},
+	workoutsExercices : {
+		getAll : function(req, res, next){
+			workoutsExercices.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			workoutsExercices.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			workoutsExercices.create(db, req, res, next);
 		}
 	}
 	

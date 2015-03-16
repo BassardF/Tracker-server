@@ -145,6 +145,71 @@ router.post('/performance-goals', function(req, res, next) {
   	requests.performanceGoals.create(req, res, next);
 });
 
+//Schedules
+router.get('/schedules', function(req, res, next) {
+  	requests.schedules.getAll(req, res, next);
+});
+
+router.get('/schedules/:id', function(req, res, next) {
+  	requests.schedules.get(req, res, next);
+});
+
+router.post('/schedules', function(req, res, next) {
+  	requests.schedules.create(req, res, next);
+});
+
+//SchedulesExercices
+router.get('/schedules-exercices', function(req, res, next) {
+  	requests.schedulesExercices.getAll(req, res, next);
+});
+
+router.get('/schedules-exercices/:id', function(req, res, next) {
+  	requests.schedulesExercices.get(req, res, next);
+});
+
+router.post('/schedules-exercices', function(req, res, next) {
+  	requests.schedulesExercices.create(req, res, next);
+});
+
+//UserMeasurements
+router.get('/user-measurements', function(req, res, next) {
+  	requests.userMeasurements.getAll(req, res, next);
+});
+
+router.get('/user-measurements/:id', function(req, res, next) {
+  	requests.userMeasurements.get(req, res, next);
+});
+
+router.post('/user-measurements', function(req, res, next) {
+  	requests.userMeasurements.create(req, res, next);
+});
+
+//Workouts
+router.get('/workouts', function(req, res, next) {
+  	requests.workouts.getAll(req, res, next);
+});
+
+router.get('/workouts/:id', function(req, res, next) {
+  	requests.workouts.get(req, res, next);
+});
+
+router.post('/workouts', function(req, res, next) {
+  	requests.workouts.create(req, res, next);
+});
+
+//WorkoutsExercices
+router.get('/workouts-exercices', function(req, res, next) {
+  	requests.workoutsExercices.getAll(req, res, next);
+});
+
+router.get('/workouts-exercices/:id', function(req, res, next) {
+  	requests.workoutsExercices.get(req, res, next);
+});
+
+router.post('/workouts-exercices', function(req, res, next) {
+  	requests.workoutsExercices.create(req, res, next);
+});
+
 
 //Export
 module.exports = router;
