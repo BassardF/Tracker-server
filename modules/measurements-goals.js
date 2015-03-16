@@ -11,10 +11,12 @@ module.exports = {
 	    });
 	},
 	create : function(db, req, res, next){
-		db.run("INSERT INTO users (name, email, password) values ($name, $email, $password)", {
-        	$name: req.body.name,
-        	$email: req.body.email,
-        	$password : req.body.password
+		db.run("INSERT INTO users (value, date, side, measurements_id, users_id) values ($value, $date, $side, $measurements_id, $users_id)", {
+        	$value: req.body.value,
+        	$date: req.body.date,
+        	$side : req.body.side,
+        	$measurements_id: req.body.measurements_id,
+        	$users_id : req.body.users_id
       	});
 	}
 
