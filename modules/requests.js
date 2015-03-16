@@ -1,6 +1,8 @@
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('tracker');
 var fs = require('fs');
+
+var user = require('./user.js');
+var area = require('./area.js');
 
 /* Create the Database if needed */
 
@@ -24,23 +26,26 @@ fs.exists('database', function (exists) {
 /* Modules */
 
 module.exports = {
-
-	test : function(req, res, next){
-		db.get("SELECT value FROM counts", function(err, row){
-	        res.json({ "count" : row.value });
-	    });
-	}, 
-
-	test2 : function(req, res, next){
-		db.run("UPDATE counts SET value = value + 1 WHERE key = ?", "counter", function(err, row){
-	        if (err){
-	            console.err(err);
-	            res.status(500);
-	        }
-	        else {
-	            res.status(202);
-	        }
-	        res.end();
-	    });
+	users : {
+		getAll : function(req, res, next){
+			user.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			user.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			user.create(db, req, res, next);
+		}
+	},
+	areas : {
+		getAll : function(req, res, next){
+			area.getAll(db, req, res, next);
+		},
+		get : function(req, res, next){
+			area.get(db, req, res, next);
+		},
+		create : function(req, res, next){
+			area.create(db, req, res, next);
+		}
 	}
 }

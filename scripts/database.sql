@@ -1,31 +1,28 @@
 DROP TABLE IF EXISTS `areas` ;
 
 CREATE TABLE IF NOT EXISTS `areas` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `name` VARCHAR(45) NULL,
   `class` VARCHAR(45) NULL,
-  `side` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
+  `side` VARCHAR(45) NULL)
 ;
 
 DROP TABLE IF EXISTS `users` ;
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `name` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
+  `password` VARCHAR(45) NULL)
 ;
 
 DROP TABLE IF EXISTS `exercices` ;
 
 CREATE TABLE IF NOT EXISTS `exercices` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `name` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_exercices_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
@@ -36,12 +33,11 @@ CREATE TABLE IF NOT EXISTS `exercices` (
 DROP TABLE IF EXISTS `workouts` ;
 
 CREATE TABLE IF NOT EXISTS `workouts` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `name` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
   `goal` VARCHAR(45) NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_workouts_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
@@ -52,11 +48,10 @@ CREATE TABLE IF NOT EXISTS `workouts` (
 DROP TABLE IF EXISTS `schedules` ;
 
 CREATE TABLE IF NOT EXISTS `schedules` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `date` DATETIME NULL,
   `workouts_id` INT NOT NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_schedules_workouts1`
     FOREIGN KEY (`workouts_id`)
     REFERENCES `workouts` (`id`)
@@ -73,14 +68,13 @@ CREATE TABLE IF NOT EXISTS `schedules` (
 DROP TABLE IF EXISTS `workouts-exercices` ;
 
 CREATE TABLE IF NOT EXISTS `workouts-exercices` (
-  `id`  NOT NULL,
+  `id`  INTEGER PRIMARY KEY AUTOINCREMENT,
   `rest` INT NULL,
   `count` INT NULL,
   `reps` VARCHAR(45) NULL,
   `weight` INT NULL,
   `exercices_id` INT NOT NULL,
   `workouts_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
   CONSTRAINT `fk_set_exercices1`
     FOREIGN KEY (`exercices_id`)
     REFERENCES `exercices` (`id`)
@@ -97,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `workouts-exercices` (
 DROP TABLE IF EXISTS `schedules-exercices` ;
 
 CREATE TABLE IF NOT EXISTS `schedules-exercices` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `count` INT NULL,
   `rest` INT NULL,
   `reps` VARCHAR(45) NULL,
@@ -105,7 +99,6 @@ CREATE TABLE IF NOT EXISTS `schedules-exercices` (
   `date` DATETIME NULL,
   `exercices_id` INT NOT NULL,
   `schedules_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `exercices_id`, `schedules_id`),
   CONSTRAINT `fk_record_exercices1`
     FOREIGN KEY (`exercices_id`)
     REFERENCES `exercices` (`id`)
@@ -122,11 +115,10 @@ CREATE TABLE IF NOT EXISTS `schedules-exercices` (
 DROP TABLE IF EXISTS `bodyweight` ;
 
 CREATE TABLE IF NOT EXISTS `bodyweight` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `weight` DECIMAL(256) NULL,
   `date` DATETIME NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_bodyweight_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
@@ -138,11 +130,10 @@ CREATE TABLE IF NOT EXISTS `bodyweight` (
 DROP TABLE IF EXISTS `bodyfat` ;
 
 CREATE TABLE IF NOT EXISTS `bodyfat` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `percent` DECIMAL(256) NULL,
   `date` DATETIME NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_bodyfat_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
@@ -154,12 +145,11 @@ CREATE TABLE IF NOT EXISTS `bodyfat` (
 DROP TABLE IF EXISTS `bodyweight-goals` ;
 
 CREATE TABLE IF NOT EXISTS `bodyweight-goals` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `weight` DECIMAL(256) NULL,
   `date` DATETIME NULL,
   `date_reached` DATETIME NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_bodyweightgoal_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
@@ -171,12 +161,11 @@ CREATE TABLE IF NOT EXISTS `bodyweight-goals` (
 DROP TABLE IF EXISTS `bodyfat-goals` ;
 
 CREATE TABLE IF NOT EXISTS `bodyfat-goals` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `percent` DECIMAL(256) NULL,
   `date` DATETIME NULL,
   `date_reached` DATETIME NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
   CONSTRAINT `fk_bodyfatgoal_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
@@ -187,20 +176,18 @@ CREATE TABLE IF NOT EXISTS `bodyfat-goals` (
 DROP TABLE IF EXISTS `measurements` ;
 
 CREATE TABLE IF NOT EXISTS `measurements` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `name` VARCHAR(45) NULL)
 ;
 
 DROP TABLE IF EXISTS `user-measurements` ;
 
 CREATE TABLE IF NOT EXISTS `user-measurements` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `value` DECIMAL(256) NULL,
   `date` DATETIME NULL,
   `measurements_id` INT NOT NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `measurements_id`, `users_id`),
   CONSTRAINT `fk_user-measurements_measurements1`
     FOREIGN KEY (`measurements_id`)
     REFERENCES `measurements` (`id`)
@@ -216,13 +203,12 @@ CREATE TABLE IF NOT EXISTS `user-measurements` (
 DROP TABLE IF EXISTS `measurement-goals` ;
 
 CREATE TABLE IF NOT EXISTS `measurement-goals` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `value` DECIMAL(256) NULL,
   `date` DATETIME NULL,
   `side` VARCHAR(45) NULL,
   `measurements_id` INT NOT NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `measurements_id`, `users_id`),
   CONSTRAINT `fk_measurement-goals_measurements1`
     FOREIGN KEY (`measurements_id`)
     REFERENCES `measurements` (`id`)
@@ -238,13 +224,12 @@ CREATE TABLE IF NOT EXISTS `measurement-goals` (
 DROP TABLE IF EXISTS `lines` ;
 
 CREATE TABLE IF NOT EXISTS `lines` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `x1` INT NULL,
   `y1` INT NULL,
   `x2` INT NULL,
   `y2` INT NULL,
   `measurements_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
   CONSTRAINT `fk_lines_measurements1`
     FOREIGN KEY (`measurements_id`)
     REFERENCES `measurements` (`id`)
@@ -273,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `exercices_has_areas` (
 DROP TABLE IF EXISTS `performance-goals` ;
 
 CREATE TABLE IF NOT EXISTS `performance-goals` (
-  `id` INT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
   `count` INT NULL,
   `rest` INT NULL,
   `weight` INT NULL,
@@ -282,7 +267,6 @@ CREATE TABLE IF NOT EXISTS `performance-goals` (
   `date-reached` DATETIME NULL,
   `exercices_id` INT NOT NULL,
   `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `exercices_id`, `users_id`),
   CONSTRAINT `fk_performance-goals_exercices1`
     FOREIGN KEY (`exercices_id`)
     REFERENCES `exercices` (`id`)
