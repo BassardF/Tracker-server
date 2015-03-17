@@ -11,7 +11,7 @@ module.exports = {
 	    });
 	},
 	create : function(db, req, res, next){
-		db.run("INSERT INTO user-measurements (value, date, measurements_id, users_id) values ($value, $date, $measurements_id, $users_id)", {
+		db.run("INSERT INTO 'user-measurements' (value, date, measurements_id, users_id) values ($value, $date, $measurements_id, $users_id)", {
         	$value: req.body.value,
         	$date: req.body.date,
         	$measurements_id : req.body.measurements_id,

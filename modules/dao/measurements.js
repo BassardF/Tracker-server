@@ -1,6 +1,6 @@
 module.exports = {
 	getAll : function(db, req, res, next){
-		db.all("SELECT * FROM measurements", function(err, rows){
+		db.all("SELECT * FROM measurements INNER JOIN lines on lines.measurements_id = measurements.id", function(err, rows){
 	        res.json(rows);
 	    });
 	},
@@ -12,7 +12,7 @@ module.exports = {
 	},
 	create : function(db, req, res, next){
 		db.run("INSERT INTO measurements (name) values ($name)", {
-        	$x1: req.body.name
+        	$name: req.body.name
       	});
 	}
 
