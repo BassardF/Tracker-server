@@ -15,6 +15,12 @@ module.exports = {
         	$weight: req.body.weight,
         	$date: req.body.date,
         	$users_id : req.body.users_id
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

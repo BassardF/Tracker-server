@@ -19,6 +19,12 @@ module.exports = {
         	$date: req.body.date,
         	$exercices_id : req.body.exercices_id,
 			$schedules_id : req.body.schedules_id
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

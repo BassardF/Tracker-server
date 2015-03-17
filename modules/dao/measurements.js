@@ -13,6 +13,12 @@ module.exports = {
 	create : function(db, req, res, next){
 		db.run("INSERT INTO measurements (name) values ($name)", {
         	$name: req.body.name
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

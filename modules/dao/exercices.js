@@ -15,6 +15,12 @@ module.exports = {
         	$name: req.body.name,
         	$description: req.body.description,
         	$users_id : req.body.users_id
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

@@ -15,7 +15,12 @@ module.exports = {
         	$name: req.body.name,
         	$class: req.body.class,
         	$side : req.body.side
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
-      	res.json(req.body);
 	}
 }

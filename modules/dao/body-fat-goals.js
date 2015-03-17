@@ -16,6 +16,12 @@ module.exports = {
         	$date: req.body.date,
         	$date_reached : req.body.date_reached,
 			$users_id : req.body.users_id
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

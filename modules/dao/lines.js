@@ -17,6 +17,12 @@ module.exports = {
         	$x2: req.body.x2,
         	$y2: req.body.y2,
         	$measurements_id : req.body.measurements_id
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

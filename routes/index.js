@@ -37,6 +37,14 @@ router.get('/body-fat/:id', function(req, res, next) {
   	requests.bodyFat.get(req, res, next);
 });
 
+router.get('/body-fat/users/:user_id/last', function(req, res, next) {
+  	requests.bodyFat.usersLast(req, res, next);
+});
+
+router.get('/body-fat/users/:user_id', function(req, res, next) {
+  	requests.bodyFat.byUser(req, res, next);
+});
+
 router.post('/body-fat', function(req, res, next) {
   	requests.bodyFat.create(req, res, next);
 });

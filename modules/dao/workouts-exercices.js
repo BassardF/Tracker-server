@@ -18,6 +18,12 @@ module.exports = {
         	$weight: req.body.weight,
         	$exercices_id: req.body.exercices_id,
         	$workouts_id : req.body.workouts_id			
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 

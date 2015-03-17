@@ -72,7 +72,13 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			bodyFat.create(db, req, res, next);
-		}
+		},
+		usersLast : function(req, res, next){
+			bodyFat.usersLast(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			bodyFat.byUser(db, req, res, next);
+		},
 	},
 	bodyFatGoals : {
 		getAll : function(req, res, next){

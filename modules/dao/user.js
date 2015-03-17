@@ -15,6 +15,12 @@ module.exports = {
         	$name: req.body.name,
         	$email: req.body.email,
         	$password : req.body.password
+      	}, function(error){
+      		if(error !== null){
+				res.status(500).json(error);
+      		} else {
+      			res.status(201).json(this);
+      		}
       	});
 	}
 
