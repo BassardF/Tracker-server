@@ -1,22 +1,22 @@
 var sqlite3 = require('sqlite3').verbose();
 var fs = require('fs');
 
-var user = require('./user.js');
-var area = require('./area.js');
-var bodyFat = require('./body-fat.js');
-var bodyFatGoals = require('./body-fat-goals.js');
-var bodyWeight = require('./body-weight.js');
-var bodyWeightGoals = require('./body-weight-goals.js');
-var exercices = require('./exercices.js');
-var lines = require('./lines.js');
-var measurements = require('./measurements.js');
-var measurementsGoals = require('./measurements-goals.js');
-var performanceGoals = require('./performance-goals.js');
-var schedules = require('./schedules.js');
-var schedulesExercices = require('./schedules-exercices.js');
-var userMeasurements = require('./user-measurements.js');
-var workouts = require('./workouts.js');
-var workoutsExercices = require('./workouts-exercices.js');
+var user = require('./dao/user.js');
+var area = require('./dao/area.js');
+var bodyFat = require('./dao/body-fat.js');
+var bodyFatGoals = require('./dao/body-fat-goals.js');
+var bodyWeight = require('./dao/body-weight.js');
+var bodyWeightGoals = require('./dao/body-weight-goals.js');
+var exercices = require('./dao/exercices.js');
+var lines = require('./dao/lines.js');
+var measurements = require('./dao/measurements.js');
+var measurementsGoals = require('./dao/measurements-goals.js');
+var performanceGoals = require('./dao/performance-goals.js');
+var schedules = require('./dao/schedules.js');
+var schedulesExercices = require('./dao/schedules-exercices.js');
+var userMeasurements = require('./dao/user-measurements.js');
+var workouts = require('./dao/workouts.js');
+var workoutsExercices = require('./dao/workouts-exercices.js');
 
 
 /* Create the Database if needed */

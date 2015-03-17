@@ -278,3 +278,50 @@ CREATE TABLE IF NOT EXISTS `performance-goals` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
+
+INSERT INTO users (name, email, password) VALUES ('Frank', 'f.bassard@gmail.com', 'pwd');
+
+INSERT INTO areas (name, class, side) VALUES ('Pecs', 'pecs', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Shoulders', 'shoulders', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Biceps', 'biceps', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Abs', 'abs', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Quadriceps', 'quadriceps', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Calves', 'calves', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Traps', 'traps', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Forearms', 'forearms', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Transverses', 'transverses', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Obliques', 'obliques', 'front');
+INSERT INTO areas (name, class, side) VALUES ('Triceps', 'triceps', 'back');
+INSERT INTO areas (name, class, side) VALUES ('Upper-back', 'upper-back', 'back');
+INSERT INTO areas (name, class, side) VALUES ('Lower-back', 'lower-back', 'back');
+INSERT INTO areas (name, class, side) VALUES ('Hamstrings', 'hamstrings', 'back');
+INSERT INTO areas (name, class, side) VALUES ('Glutes', 'glutes', 'back');
+
+INSERT INTO measurements (id, name) VALUES (1, 'Neck');
+INSERT INTO measurements (id, name) VALUES (2, 'Shoulder width');
+INSERT INTO measurements (id, name) VALUES (3, 'Chest');
+INSERT INTO measurements (id, name) VALUES (4, 'Right arm');
+INSERT INTO measurements (id, name) VALUES (5, 'Left arm');
+INSERT INTO measurements (id, name) VALUES (6, 'Left forearm');
+INSERT INTO measurements (id, name) VALUES (7, 'Right forearm');
+INSERT INTO measurements (id, name) VALUES (8, 'Waist');
+INSERT INTO measurements (id, name) VALUES (9, 'Right thigh');
+INSERT INTO measurements (id, name) VALUES (10, 'Left thigh');
+INSERT INTO measurements (id, name) VALUES (11, 'Right calf');
+INSERT INTO measurements (id, name) VALUES (12, 'Left calf');
+INSERT INTO measurements (id, name) VALUES (13, 'Glutes');
+
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (42, 13, 58, 13, 1);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (24, 20, 76, 20, 2);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (32, 25, 68, 25, 3);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (22, 27, 33, 30, 4);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (75, 27, 67, 30, 5);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (85, 35, 74, 38, 6);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (15, 35, 26, 38, 7);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (34, 36, 66, 36, 8);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (28, 53, 49, 57, 9);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (72, 53, 51, 57, 10);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (26, 80, 42, 80, 11);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (77, 80, 61, 80, 12);
+INSERT INTO lines (x1, y1, x2, y2, measurements_id) VALUES (30, 50, 70, 50, 13);
+
