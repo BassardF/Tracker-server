@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `performance-goals` (
   `weight` INT NULL,
   `date` DATETIME NULL,
   `reps` VARCHAR(45) NULL,
-  `date-reached` DATETIME NULL,
+  `date_reached` DATETIME NULL,
   `exercices_id` INT NOT NULL,
   `users_id` INT NOT NULL,
   CONSTRAINT `fk_performance-goals_exercices1`

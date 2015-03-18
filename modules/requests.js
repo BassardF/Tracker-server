@@ -173,6 +173,9 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			measurementsGoals.create(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			measurementsGoals.byUser(db, req, res, next);
 		}
 	},
 	performanceGoals : {
@@ -184,6 +187,9 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			performanceGoals.create(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			performanceGoals.byUser(db, req, res, next);
 		}
 	},
 	schedules : {

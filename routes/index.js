@@ -160,6 +160,10 @@ router.get('/measurements-goals/:id', function(req, res, next) {
   	requests.measurementsGoals.get(req, res, next);
 });
 
+router.get('/measurements-goals/users/:user_id', function(req, res, next) {
+  	requests.measurementsGoals.byUser(req, res, next);
+});
+
 router.post('/measurements-goals', function(req, res, next) {
   	requests.measurementsGoals.create(req, res, next);
 });
@@ -171,6 +175,10 @@ router.get('/performance-goals', function(req, res, next) {
 
 router.get('/performance-goals/:id', function(req, res, next) {
   	requests.performanceGoals.get(req, res, next);
+});
+
+router.get('/performance-goals/users/:user_id', function(req, res, next) {
+  	requests.performanceGoals.byUser(req, res, next);
 });
 
 router.post('/performance-goals', function(req, res, next) {
