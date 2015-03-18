@@ -23,6 +23,18 @@ module.exports = {
       			res.status(201).json(this);
       		}
       	});
+	},
+	usersLast : function(db, req, res, next){
+		var user_id = req.params.user_id;
+		db.get("SELECT * FROM bodyfat-goals WHERE users_id = " + user_id, function(err, row){
+	        res.json(row);
+	    });
+	},
+	byUser : function(db, req, res, next){
+		var user_id = req.params.user_id;
+		db.get("SELECT * FROM bodyfat-goals WHERE users_id = " + user_id + " ORDER BY date DESC LIMIT 1", function(err, row){
+	        res.json(row);
+	    });
 	}
 
 }

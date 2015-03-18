@@ -58,6 +58,14 @@ router.get('/body-fat-goals/:id', function(req, res, next) {
   	requests.bodyFatGoals.get(req, res, next);
 });
 
+router.get('/body-fat-goals/users/:user_id/last', function(req, res, next) {
+  	requests.bodyFatGoals.usersLast(req, res, next);
+});
+
+router.get('/body-fat-goals/users/:user_id', function(req, res, next) {
+  	requests.bodyFatGoals.byUser(req, res, next);
+});
+
 router.post('/body-fat-goals', function(req, res, next) {
   	requests.bodyFatGoals.create(req, res, next);
 });
@@ -71,6 +79,14 @@ router.get('/body-weight/:id', function(req, res, next) {
   	requests.bodyWeight.get(req, res, next);
 });
 
+router.get('/body-weight/users/:user_id/last', function(req, res, next) {
+  	requests.bodyWeight.usersLast(req, res, next);
+});
+
+router.get('/body-weight/users/:user_id', function(req, res, next) {
+  	requests.bodyWeight.byUser(req, res, next);
+});
+
 router.post('/body-weight', function(req, res, next) {
   	requests.bodyWeight.create(req, res, next);
 });
@@ -82,6 +98,14 @@ router.get('/body-weight-goals', function(req, res, next) {
 
 router.get('/body-weight-goals/:id', function(req, res, next) {
   	requests.bodyWeightGoals.get(req, res, next);
+});
+
+router.get('/body-weight-goals/users/:user_id/last', function(req, res, next) {
+  	requests.bodyWeightGoals.usersLast(req, res, next);
+});
+
+router.get('/body-weight-goals/users/:user_id', function(req, res, next) {
+  	requests.bodyWeightGoals.byUser(req, res, next);
 });
 
 router.post('/body-weight-goals', function(req, res, next) {

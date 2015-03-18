@@ -78,7 +78,7 @@ module.exports = {
 		},
 		byUser : function(req, res, next){
 			bodyFat.byUser(db, req, res, next);
-		},
+		}
 	},
 	bodyFatGoals : {
 		getAll : function(req, res, next){
@@ -89,6 +89,12 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			bodyFatGoals.create(db, req, res, next);
+		},
+		usersLast : function(req, res, next){
+			bodyFatGoals.usersLast(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			bodyFatGoals.byUser(db, req, res, next);
 		}
 	},
 	bodyWeight : {
@@ -100,6 +106,12 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			bodyWeight.create(db, req, res, next);
+		},
+		usersLast : function(req, res, next){
+			bodyWeight.usersLast(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			bodyWeight.byUser(db, req, res, next);
 		}
 	},
 	bodyWeightGoals : {
@@ -111,6 +123,12 @@ module.exports = {
 		},
 		create : function(req, res, next){
 			bodyWeightGoals.create(db, req, res, next);
+		},
+		usersLast : function(req, res, next){
+			bodyWeightGoals.usersLast(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			bodyWeightGoals.byUser(db, req, res, next);
 		}
 	},
 	exercices : {

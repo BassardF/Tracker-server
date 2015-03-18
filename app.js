@@ -21,4 +21,6 @@ app.all('*', function(req, res, next) {
 
 app.use('/', routes);
 
-var server = app.listen(3000);
+var server = app.listen(3000, function(){
+	console.log('Listening...');
+});
