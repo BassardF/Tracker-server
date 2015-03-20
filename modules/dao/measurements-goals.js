@@ -31,6 +31,6 @@ module.exports = {
 		}, function(err, row){
 	        res.json(row);
 	    });
-	},
+	}
 
 }

@@ -11,16 +11,6 @@ module.exports = {
 	    });
 	},
 	create : function(db, req, res, next){
-		console.log({
-        	$count: req.body.count,
-        	$rest: req.body.rest,
-        	$weight : req.body.weight,
-        	$date: req.body.date,
-        	$reps: req.body.reps,
-        	$date_reached : req.body.date_reached,
-        	$exercices_id: req.body.exercices_id,
-        	$users_id : req.body.users_id
-      	})	;
 		db.run("INSERT INTO 'performance-goals' (count, rest, weight, date, reps, date_reached, exercices_id, users_id) values ($count, $rest, $weight, $date, $reps, $date_reached, $exercices_id, $users_id)", {
         	$count: req.body.count,
         	$rest: req.body.rest,
