@@ -6,7 +6,9 @@ module.exports = {
 	},
 	get : function(db, req, res, next){
 		var id = req.params.id;
-		db.get("SELECT * FROM schedules WHERE id = " + id, function(err, row){
+		db.all("SELECT * FROM schedules INNER JOIN 'schedules-exercices' on 'schedules-exercices'.schedules_id on schedules.id WHERE id = $id", {
+			$id : id
+		}, function(err, rows){
 	        res.json(row);
 	    });
 	},
@@ -39,6 +41,13 @@ module.exports = {
       			res.status(201).json(this);
       		}
       	});
+	},
+	byUser : function(db, req, res, next){
+		db.all("SELECT *, schedules.id as id FROM schedules INNER JOIN workouts on workouts.id = schedules.workouts_id WHERE schedules.users_id = $user_id and schedules.date > date('now')", {
+			$user_id : req.params.user_id 
+		}, function(err, row){
+			console.log(err);
+	        res.json(row);
+	    });
 	}
-
 }

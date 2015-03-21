@@ -194,6 +194,10 @@ router.get('/schedules/:id', function(req, res, next) {
   	requests.schedules.get(req, res, next);
 });
 
+router.get('/schedules/users/:user_id', function(req, res, next) {
+  	requests.schedules.byUser(req, res, next);
+});
+
 router.post('/schedules', function(req, res, next) {
   	requests.schedules.create(req, res, next);
 });
@@ -205,6 +209,10 @@ router.get('/schedules-exercices', function(req, res, next) {
 
 router.get('/schedules-exercices/:id', function(req, res, next) {
   	requests.schedulesExercices.get(req, res, next);
+});
+
+router.get('/schedules-exercices/schedules/:schedule_id', function(req, res, next) {
+  	requests.schedulesExercices.bySchedule(req, res, next);
 });
 
 router.post('/schedules-exercices', function(req, res, next) {
