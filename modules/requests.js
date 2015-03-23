@@ -213,11 +213,17 @@ module.exports = {
 		get : function(req, res, next){
 			schedulesExercices.get(db, req, res, next);
 		},
+		byUser : function(req, res, next){
+			schedulesExercices.byUser(db, req, res, next);
+		},
 		create : function(req, res, next){
 			schedulesExercices.create(db, req, res, next);
 		},
 		bySchedule : function(req, res, next){
 			schedulesExercices.bySchedule(db, req, res, next);
+		},
+		update : function(req, res, next){
+			schedulesExercices.update(db, req, res, next);
 		}
 	},
 	userMeasurements : {

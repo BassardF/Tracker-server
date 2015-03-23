@@ -215,6 +215,14 @@ router.get('/schedules-exercices/schedules/:schedule_id', function(req, res, nex
   	requests.schedulesExercices.bySchedule(req, res, next);
 });
 
+router.get('/schedules-exercices/users/:user_id', function(req, res, next) {
+  	requests.schedulesExercices.byUser(req, res, next);
+});
+
+router.post('/schedules-exercices/:id', function(req, res, next) {
+  	requests.schedulesExercices.update(req, res, next);
+});
+
 router.post('/schedules-exercices', function(req, res, next) {
   	requests.schedulesExercices.create(req, res, next);
 });
