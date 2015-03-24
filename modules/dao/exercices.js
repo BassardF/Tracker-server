@@ -19,6 +19,14 @@ module.exports = {
       		if(error !== null){
 				res.status(500).json(error);
       		} else {
+				for (var i = 0; i < req.body.areas.length; i++) {
+					var id = req.body.areas[i];
+					db.run("INSERT INTO 'exercices_has_areas' (exercices_id, areas_id) values ($exercices_id, $areas_id)", {
+			        	$exercices_id: this.lastID,
+			        	$areas_id: id
+			      	});
+				}
+				
       			res.status(201).json(this);
       		}
       	});

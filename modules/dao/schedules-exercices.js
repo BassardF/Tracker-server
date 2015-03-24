@@ -11,9 +11,10 @@ module.exports = {
 	    });
 	},
 	byUser : function(db, req, res, next){
-		db.all("SELECT 'schedules-exercices'.* FROM 'schedules-exercices' INNER JOIN schedules ON 'schedules-exercices'.schedules_id = schedules.id WHERE users_id = $user_id",{
+		db.all("SELECT * FROM (SELECT areas_id, sum(count) as count FROM (SELECT exercices.id, count('schedules-exercices'.id) as count FROM 'schedules-exercices' INNER JOIN exercices ON 'schedules-exercices'.exercices_id = exercices.id WHERE users_id = $user_id GROUP BY exercices.id) INNER JOIN 'exercices_has_areas' ON exercices_id = id GROUP BY areas_id) INNER JOIN areas on id = areas_id",{
 			$user_id : req.params.user_id
 		}, function(err, rows){
+			console.log(err);
 	        res.json(rows);
 	    });
 	},
