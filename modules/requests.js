@@ -216,6 +216,9 @@ module.exports = {
 		byUser : function(req, res, next){
 			schedulesExercices.byUser(db, req, res, next);
 		},
+		byExercice : function(req, res, next){
+			schedulesExercices.byExercice(db, req, res, next);
+		},
 		create : function(req, res, next){
 			schedulesExercices.create(db, req, res, next);
 		},
@@ -232,6 +235,9 @@ module.exports = {
 		},
 		get : function(req, res, next){
 			userMeasurements.get(db, req, res, next);
+		},
+		byUser : function(req, res, next){
+			userMeasurements.byUser(db, req, res, next);
 		},
 		create : function(req, res, next){
 			userMeasurements.create(db, req, res, next);

@@ -30,8 +30,9 @@ module.exports = {
 	    });
 	},
 	byUser : function(db, req, res, next){
-		var user_id = req.params.user_id;
-		db.get("SELECT * FROM bodyfat WHERE users_id = " + user_id + " ORDER BY date DESC LIMIT 1", function(err, row){
+		db.all("SELECT * FROM bodyfat WHERE users_id = $user_id ORDER BY date DESC", {
+			$user_id : req.params.user_id
+		}, function(err, row){
 	        res.json(row);
 	    });
 	}

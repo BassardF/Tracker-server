@@ -219,6 +219,10 @@ router.get('/schedules-exercices/users/:user_id', function(req, res, next) {
   	requests.schedulesExercices.byUser(req, res, next);
 });
 
+router.get('/schedules-exercices/users/:user_id/exercices/:exercice_id', function(req, res, next) {
+  	requests.schedulesExercices.byExercice(req, res, next);
+});
+
 router.post('/schedules-exercices/:id', function(req, res, next) {
   	requests.schedulesExercices.update(req, res, next);
 });
@@ -234,6 +238,10 @@ router.get('/user-measurements', function(req, res, next) {
 
 router.get('/user-measurements/:id', function(req, res, next) {
   	requests.userMeasurements.get(req, res, next);
+});
+
+router.get('/user-measurements/users/:user_id', function(req, res, next) {
+  	requests.userMeasurements.byUser(req, res, next);
 });
 
 router.post('/user-measurements', function(req, res, next) {

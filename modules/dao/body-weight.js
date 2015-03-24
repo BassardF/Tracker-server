@@ -30,9 +30,10 @@ module.exports = {
 	    });
 	},
 	byUser : function(db, req, res, next){
-		var user_id = req.params.user_id;
-		db.get("SELECT * FROM bodyweight WHERE users_id = " + user_id + " ORDER BY date DESC LIMIT 1", function(err, row){
-	        res.json(row);
+		db.all("SELECT * FROM bodyweight WHERE users_id = $user_id ORDER BY date DESC", {
+			$user_id : req.params.user_id
+		}, function(err, rows){
+	        res.json(rows);
 	    });
 	}
 

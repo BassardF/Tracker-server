@@ -18,6 +18,15 @@ module.exports = {
 	        res.json(rows);
 	    });
 	},
+	byExercice : function(db, req, res, next){
+		db.all("SELECT * FROM 'schedules-exercices' INNER JOIN schedules ON schedules.id = schedules_id WHERE exercices_id = $exercice_id AND users_id = $user_id",{
+			$exercice_id : req.params.exercice_id,
+			$user_id : req.params.user_id
+		}, function(err, rows){
+			console.log(err);
+	        res.json(rows);
+	    });
+	},
 	bySchedule : function(db, req, res, next){
 		var id = req.params.schedule_id;
 		db.all("SELECT * FROM 'schedules-exercices' WHERE schedules_id = " + id, function(err, rows){
