@@ -113,12 +113,16 @@ router.post('/body-weight-goals', function(req, res, next) {
 });
 
 //Exercices
-router.get('/exercices', function(req, res, next) {
+router.get('/Exercices', function(req, res, next) {
   	requests.exercices.getAll(req, res, next);
 });
 
 router.get('/exercices/:id', function(req, res, next) {
   	requests.exercices.get(req, res, next);
+});
+
+router.get('/exercices/users/:user_id', function(req, res, next) {
+  	requests.exercices.byUser(req, res, next);
 });
 
 router.post('/exercices', function(req, res, next) {

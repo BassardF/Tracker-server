@@ -138,6 +138,9 @@ module.exports = {
 		get : function(req, res, next){
 			exercices.get(db, req, res, next);
 		},
+		byUser : function(req, res, next){
+			exercices.byUser(db, req, res, next);
+		},
 		create : function(req, res, next){
 			exercices.create(db, req, res, next);
 		}
