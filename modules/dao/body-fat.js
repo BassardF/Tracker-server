@@ -30,7 +30,7 @@ module.exports = {
 	    });
 	},
 	byUser : function(db, req, res, next){
-		db.all("SELECT * FROM bodyfat WHERE users_id = $user_id ORDER BY date DESC", {
+		db.all("SELECT * FROM bodyfat WHERE users_id = $user_id ORDER BY date ASC", {
 			$user_id : req.params.user_id
 		}, function(err, row){
 	        res.json(row);

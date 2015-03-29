@@ -11,7 +11,7 @@ module.exports = {
 	    });
 	},
 	byUser : function(db, req, res, next){
-		db.all("SELECT * FROM 'user-measurements' WHERE users_id = $user_id", {
+		db.all("SELECT * FROM 'user-measurements' WHERE users_id = $user_id ORDER BY date ASC", {
 			$user_id : req.params.user_id
 		}, function(err, rows){
 	        res.json(rows);
