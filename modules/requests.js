@@ -207,6 +207,9 @@ module.exports = {
 		},
 		byUser : function(req, res, next){
 			schedules.byUser(db, req, res, next);
+		},
+		delete : function(req, res, next){
+			schedules.delete(db, req, res, next);
 		}
 	},
 	schedulesExercices : {
@@ -253,6 +256,9 @@ module.exports = {
 		get : function(req, res, next){
 			workouts.get(db, req, res, next);
 		},
+		byUser : function(req, res, next){
+			workouts.byUser(db, req, res, next);
+		},		
 		create : function(req, res, next){
 			workouts.create(db, req, res, next);
 		}

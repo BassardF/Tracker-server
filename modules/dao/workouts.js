@@ -10,6 +10,13 @@ module.exports = {
 	        res.json(row);
 	    });
 	},
+	byUser : function(db, req, res, next){
+		db.all("SELECT * FROM workouts WHERE users_id = $user_id", {
+			$user_id : req.params.user_id
+		}, function(err, rows){
+	        res.json(rows);
+	    });
+	},
 	create : function(db, req, res, next){
 		db.run("INSERT INTO workouts (name, description, goal, users_id) values ($name, $description, $goal, $users_id)", {
         	$name: req.body.name,

@@ -206,6 +206,10 @@ router.post('/schedules', function(req, res, next) {
   	requests.schedules.create(req, res, next);
 });
 
+router.delete('/schedules/:id', function(req, res, next) {
+  	requests.schedules.delete(req, res, next);
+});
+
 //SchedulesExercices
 router.get('/schedules-exercices', function(req, res, next) {
   	requests.schedulesExercices.getAll(req, res, next);
@@ -259,6 +263,10 @@ router.get('/workouts', function(req, res, next) {
 
 router.get('/workouts/:id', function(req, res, next) {
   	requests.workouts.get(req, res, next);
+});
+
+router.get('/workouts/users/:user_id', function(req, res, next) {
+  	requests.workouts.byUser(req, res, next);
 });
 
 router.post('/workouts', function(req, res, next) {
